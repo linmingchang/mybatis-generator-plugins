@@ -68,7 +68,7 @@ public class GeneratorSwagger2Annotation extends PluginAdapter {
         }
 
         //判断是否not null
-        if (hidden && !introspectedColumn.isNullable() && !introspectedColumn.getJavaProperty().equals("id")) {
+        if (!hidden && !introspectedColumn.isNullable() && !introspectedColumn.getJavaProperty().equals("id")) {
             field.addAnnotation("@NotNull(message = \"" + introspectedColumn.getJavaProperty() + "不能为空" + "\")");
         }
 
